@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
+import "./NavBar.css";
 
 export default function NavBar({ user, setUser }) {
 
@@ -11,14 +12,16 @@ export default function NavBar({ user, setUser }) {
   }
 
   return (
-    <nav>
-      <Link to="/orders">Order History</Link>
+    <div className="flex-container">
+    <nav className="flex-item">
+      <Link className="link" to="/bands">Bands</Link>
       &nbsp; | &nbsp;
-      <Link to="/orders/new">New Order</Link>
+      <Link className="link" to="/bands/new">New Band</Link>
       &nbsp; | &nbsp;
       <span>Welcome, {user.name}</span>
       &nbsp; | &nbsp;
-      <Link to="" onClick={handleLogOut}>Log Out</Link>
+      <Link className="link" to="" onClick={handleLogOut}>Log Out</Link>
     </nav>
+    </div>
   );
 }

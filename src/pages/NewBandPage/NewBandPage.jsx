@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import * as photosAPI from '../../utilities/photos-api';
-import BandCard from '../../components/BandCard/BandCard';
+import BandList from '../../components/BandList/BandList';
 
 export default function NewBandPage({ addBand }) {
   const [newBand, setNewBand] =useState({
@@ -62,11 +62,12 @@ export default function NewBandPage({ addBand }) {
     <main className="App flex-ctr-ctr">
       <section className="flex-ctr-ctr">
         <input type="file" ref={fileInputRef} />
-        <input value={title} onChange={(evt) => setTitle(evt.target.value)} placeholder="Photo Title" />
+        <input value={title} onChange={(evt) => setTitle(evt.target.value)} 
+        placeholder="Photo Title" />
         <button onClick={handleUpload}>Upload Photo</button>
       </section>
       <section>
-        {photos.map(p => <BandCard photo={p} key={p._id} />)}
+        {photos.map(p => <BandList photo={p} key={p._id} />)}
       </section>
     </main>
     </>

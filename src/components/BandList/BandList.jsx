@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 
-export default function MovieCard(props) {
+export default function BandList(props) {
   return (
     <>
       <Link to={`/bands/${props.band.title}`} className="band-link">
         <div
           style={{
-            background: `url(${props.band.poster_path}) no-repeat center center`,
             WebkitBackgroundSize: "cover"
           }}
           className="item-card"

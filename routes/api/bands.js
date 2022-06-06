@@ -4,8 +4,9 @@ const bandsCtrl = require('../../controllers/api/bands');
 const upload = require("multer")();
 const photosCtrl = require('../../controllers/api/photos');
 
+router.get('/', bandsCtrl.getAll);
 //GET /bands/:id (show functionality)
-router.get('/:id', bandsCtrl.show);
+
 // POST /bands (create functionality)
 router.post('/', bandsCtrl.create);
 // POST /api/photos/upload

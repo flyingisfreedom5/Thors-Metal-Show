@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
 import NewBandPage from '../NewBandPage/NewBandPage';
-import BandsPage from '../BandsPage/BandsPage';
+import BandsListPage from '../BandsListPage/BandsListPage';
 import NavBar from '../../components/NavBar/NavBar';
 import BandDetailPage from '../BandDetailPage/BandDetailPage'
 import './App.css';
@@ -28,9 +28,9 @@ function App() {
           <NavBar user={user} setUser={setUser} />
           <Routes>
             {/* Route components in here */}
-            <Route path="/bands/:bandName" element={<BandDetailPage bands={bands} />} />
+            <Route path="/bands/:bandTitle" element={<BandDetailPage bands={bands} />} />
             <Route path="/bands/new" element={<NewBandPage />} />
-            <Route path="/bands" element={<BandsPage addBand ={addBand} />} />
+            <Route path="/bands" element={<BandsListPage addBand ={addBand} />} />
           </Routes>
         </>
         :

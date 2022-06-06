@@ -15,11 +15,8 @@ export default function NavBar({ user, setUser }) {
     <div className="flex-container">
     <nav className="flex-item">
       <Link className="link" to="/bands">Bands</Link>
-      &nbsp; | &nbsp;
       <Link className="link" to="/bands/new">New Band</Link>
-      &nbsp; | &nbsp;
       <span>Welcome, {user.name}</span>
-      &nbsp; | &nbsp;
       <Link className="link" to="" onClick={handleLogOut}>Log Out</Link>
     </nav>
     </div>

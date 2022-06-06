@@ -5,10 +5,21 @@ import AuthPage from '../AuthPage/AuthPage';
 import NewBandPage from '../NewBandPage/NewBandPage';
 import BandsPage from '../BandsPage/BandsPage';
 import NavBar from '../../components/NavBar/NavBar';
+import BandDetailPage from '../BandDetailPage/BandDetailPage'
 import './App.css';
 
 function App() {
   const [user, setUser] = useState(getUser());
+  const [bands, setBands] = useState([]);
+  
+  function addBand(band) {
+    setBands([...bands, { title: "",
+    members: "",
+    albumsList: "" }]);
+  }
+
+
+  
 
   return (
     <main className="App">
@@ -17,8 +28,9 @@ function App() {
           <NavBar user={user} setUser={setUser} />
           <Routes>
             {/* Route components in here */}
+            <Route path="/bands/:bandName" element={<BandDetailPage bands={bands} />} />
             <Route path="/bands/new" element={<NewBandPage />} />
-            <Route path="/bands" element={<BandsPage />} />
+            <Route path="/bands" element={<BandsPage addBand ={addBand} />} />
           </Routes>
         </>
         :

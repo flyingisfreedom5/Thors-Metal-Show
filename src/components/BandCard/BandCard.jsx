@@ -13,8 +13,8 @@ export default function MovieCard(props) {
         >
           <div className="title">
             <h1>{props.band.title}</h1>
-            <h2>Members:[props.band.members}</h2>
-            <h3>Albums List: {props.band.albums_list}</h3>
+            <h2>Members:{props.band.members}</h2>
+            <h3>Albums List: {props.band.albumsList}</h3>
           </div>
         </div>
       </Link>

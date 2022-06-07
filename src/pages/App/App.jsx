@@ -30,7 +30,7 @@ async function addBand(data) {
  const band = await BandsAPI.add(data) 
  setBands([... bands, band])
 }
-  console.log(bands);
+
 
   return (
     <main className="App">

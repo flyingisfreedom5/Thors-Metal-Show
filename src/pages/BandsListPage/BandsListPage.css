@@ -1,0 +1,15 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    border-style: double;
+    border-radius: 10px;
+  }
+  
+  body {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/b/b1/The_Wall_Cover.svg');
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-position: center;
+  }
+  

@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
 import * as bandsAPI from '../../utilities/bands-api'
 import BandList from "../../components/BandList/BandList"
+import './BandsListPage.css'
 
-export default function BandsPage({ bands }) {
- const allBands = bands.map((b, index ) =>  <p key={index}>{b.title}</p> ) 
-  
+export default function BandsPage(props) {
   return (
     <div className="container">
-      <h1>Thor's Bands</h1>
-     {allBands}
-      
+      {
+        props.bands.map(band => {
+          return <BandList key={band.title} band={band} />
+        })
+      }
     </div>
-  );
+  )
 }

@@ -13,6 +13,7 @@ export default function NewBandPage({ handleAddBand }) {
   function handleSubmit(evt) {
     evt.preventDefault();
     handleAddBand(newBand);
+    this.setNewBand({isSubmitted: true});
   }
 
   function handleChange(evt) {
@@ -26,16 +27,16 @@ export default function NewBandPage({ handleAddBand }) {
   useEffect(function() {
     photosAPI.getAll().then(photos => setPhotos(photos));
   }, []);
-  // async function handleUpload() {
-  //   const formData = new FormData();
-  //   formData.append('title', title);
-  //   formData.append('photo', fileInputRef.current.files[0]);
-  //   const newPhoto = await photosAPI.upload(formData);
-  //   setPhotos([newPhoto, ...photos]);
-  //   // Clear the description and file inputs
-  //   setTitle('');
-  //   fileInputRef.current.value = '';
-  // }
+  async function handleUpload() {
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('photo', fileInputRef.current.files[0]);
+    const newPhoto = await photosAPI.upload(formData);
+    setPhotos([newPhoto, ...photos]);
+    // Clear the description and file inputs
+    setTitle('');
+    fileInputRef.current.value = '';
+  }
   return (
     <>
     <h2>New Band</h2>
@@ -65,7 +66,7 @@ export default function NewBandPage({ handleAddBand }) {
         <input type="file" ref={fileInputRef} />
         <input value={title} onChange={(evt) => setTitle(evt.target.value)} 
         placeholder="Photo Title" />
-        {/* <button onClick={handleUpload}>Upload Photo</button> */}
+        <button onClick={handleUpload}>Upload Photo</button>
       </section>
       <section>
         {photos.map(p => <BandList photo={p} key={p._id} />)}

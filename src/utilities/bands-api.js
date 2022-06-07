@@ -8,3 +8,13 @@ export function getAll() {
 export function add(bandData) {
     return sendRequest(BASE_URL, 'POST', bandData);
 }
+
+// export const commentPost = (value, id)  => async(dispatch) => {
+//     try {
+//        const { data } = await api.comment(value, id);
+//     } catch (error) {
+
+//     }
+// }
+
+// export const comment = (value, id) => API.post(`/bands/${id}/commentPost`, { value });

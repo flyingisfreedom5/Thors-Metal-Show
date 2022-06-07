@@ -21,8 +21,8 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(require('./config/checkToken'));
 
 // Put all API routes here (before the catch-all)
-const ensureLoggedIn = require('./config/ensureLoggedIn');
 app.use('/api/users', require('./routes/api/users'));
+const ensureLoggedIn = require('./config/ensureLoggedIn');
 app.use('/api/bands', ensureLoggedIn, require('./routes/api/bands'));
 
 // "catch-all" route that will match all GET requests

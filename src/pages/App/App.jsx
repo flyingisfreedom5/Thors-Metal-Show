@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
@@ -6,20 +6,31 @@ import NewBandPage from '../NewBandPage/NewBandPage';
 import BandsListPage from '../BandsListPage/BandsListPage';
 import NavBar from '../../components/NavBar/NavBar';
 import BandDetailPage from '../BandDetailPage/BandDetailPage'
+import * as BandsAPI from '../../utilities/bands-api';
 import './App.css';
 
 function App() {
   const [user, setUser] = useState(getUser());
   const [bands, setBands] = useState([]);
   
-  function addBand(band) {
-    setBands([...bands, { title: "",
-    members: "",
-    albumsList: "" }]);
+  function handleAddBand(band) {
+    addBand(band)
   }
 
 
-  
+useEffect(() => { 
+  async function getAllBands() {
+    const bands = await BandsAPI.getAll()
+    setBands(bands);
+  }
+ getAllBands();
+}, [] )
+
+async function addBand(data) {
+ const band = await BandsAPI.add(data) 
+ setBands([... bands, band])
+}
+  console.log(bands);
 
   return (
     <main className="App">
@@ -29,8 +40,8 @@ function App() {
           <Routes>
             {/* Route components in here */}
             <Route path="/bands/:bandTitle" element={<BandDetailPage bands={bands} />} />
-            <Route path="/bands/new" element={<NewBandPage />} />
-            <Route path="/bands" element={<BandsListPage addBand ={addBand} />} />
+            <Route path="/bands/new" element={<NewBandPage handleAddBand ={handleAddBand} />} />
+            <Route path="/bands" element={<BandsListPage bands={bands}  />} />
           </Routes>
         </>
         :

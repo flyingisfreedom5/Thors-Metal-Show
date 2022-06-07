@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import Comments from '../../components/Comments/Comments';
 
 export default function BandDetailPage({ bands }) {
   let { bandName } = useParams();
@@ -14,7 +15,7 @@ export default function BandDetailPage({ bands }) {
         <ul>
             <li>{band.albumsList}</li>;
         </ul>
-
+        <Comments band={band}/>
       </div>
       {/* <img src={`${movie.poster_path}`} alt="" /> */}
     </div>

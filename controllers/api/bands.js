@@ -6,14 +6,13 @@ module.exports ={
 }
 
 async function getAll(req, res) {
-    const bands = await Band.find({
-        user: req.user._id
-    });
+    const bands = await Band.find({});
     res.json(bands);
 }
 
 async function create(req, res) {
-    req.body.user =req.user._id;
+    req.body.user = req.user._id;
     const band = await Band.create(req.body) ;
+    band.save();
     res.json(band);
 }

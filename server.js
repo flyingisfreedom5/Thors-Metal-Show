@@ -24,6 +24,7 @@ app.use(require('./config/checkToken'));
 app.use('/api/users', require('./routes/api/users'));
 const ensureLoggedIn = require('./config/ensureLoggedIn');
 app.use('/api/bands', ensureLoggedIn, require('./routes/api/bands'));
+app.use('/api/comments', ensureLoggedIn, require('./routes/api/comments'));
 
 // "catch-all" route that will match all GET requests
 // that don't match an API route defined above

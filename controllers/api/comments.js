@@ -1,13 +1,17 @@
-const Band = require('../models/band')
+const Band = require('../../models/band');
 
 module.exports = {
     create
-    // delete: deleteComment,
-    // update
+    
 };
 
 async function create(req, res) {
-    Band.findOne({'comments._id': req.params.id, 'comments.userId' : req.user._id},
-    const comment = await Comment.create(req.body) ;
-    comment.save();
-    res.json(comment);
+    console.log(req.body);
+    console.log(req.params.id);
+    const band = await Band.findOne({_id: req.body.id} )
+        req.body.commentData.user = req.user._id;
+        band.comments.push(req.body.commentData);
+        band.save();
+    
+    res.json(band);
+}

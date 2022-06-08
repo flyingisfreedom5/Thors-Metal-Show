@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function BandList(props) {
   return (
     <>
-      <Link to={`/bands/${props.band.title}`} className="band-link">
+      <Link to={`/bands/${props.band._id}`} className="band-link">
         <div
           style={{
             WebkitBackgroundSize: "cover"

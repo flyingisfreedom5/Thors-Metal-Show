@@ -4,4 +4,7 @@ const commentsCtrl = require('../../controllers/api/comments');
 
 
 // POST /bands/:id/comments
-router.post('/:id/comments', commentsCtrl.create);
+router.post('/', commentsCtrl.create);
+
+
+module.exports = router

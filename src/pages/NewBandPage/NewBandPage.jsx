@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import * as photosAPI from '../../utilities/photos-api';
 import BandList from '../../components/BandList/BandList';
-import Comments from '../../components/Comments/Comments';
 
 export default function NewBandPage({ handleAddBand }) {
   const [newBand, setNewBand] =useState({
@@ -9,7 +8,8 @@ export default function NewBandPage({ handleAddBand }) {
     members: "",
     albumsList: ""
   });
- console.log(newBand);
+
+  
 
   function handleSubmit(evt) {
     evt.preventDefault();

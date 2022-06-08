@@ -21,8 +21,8 @@ function App() {
     addBand(band)
   }
   
-  function handleAddComment(comment) {
-    addComment(comment)
+  function handleAddComment(comment, id) {
+    addComment(comment, id)
   }
 
 
@@ -38,8 +38,8 @@ async function addBand(data) {
  const band = await BandsAPI.add(data) 
  setBands([... bands, band])
 }
-async function addComment(data) {
- const comment = await CommentsAPI.addComment(data) 
+async function addComment(data, id) {
+ const comment = await CommentsAPI.addComment(data, id) 
  setComments([... comments, comment])
 }
 
@@ -54,7 +54,8 @@ async function addComment(data) {
           
           <Routes>
             {/* Route components in here */}
-            <Route path="/bands/:bandTitle" element={<BandDetailPage bands={bands} handleAddComment={handleAddComment} />} />
+            <Route path="/bands/:id" element={<BandDetailPage bands={bands}
+             handleAddComment={handleAddComment} comments={comments} />} />
             <Route path="/bands/new" element={<NewBandPage handleAddBand ={handleAddBand} />} />
             <Route path="/bands" element={<BandsListPage bands={bands}  />} />
           </Routes>

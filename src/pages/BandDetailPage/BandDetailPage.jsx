@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
 import Comments from '../../components/Comments/Comments';
 
-export default function BandDetailPage({ bands }) {
-  let { bandTitle } = useParams();
+export default function BandDetailPage({ bands, handleAddComment, comments}) {
+  let { id } = useParams();
 
-  let band = bands.find((b) => b.title === bandTitle);
+  let band = bands.find((b) => b._id === id);
   
-  function handleClick(band) {}
+
 
   return (
     <div className="flex">
@@ -17,7 +17,7 @@ export default function BandDetailPage({ bands }) {
         <ul>
             <li>{band.albumsList}</li>
         </ul>
-        <Comments/>
+        <Comments comments={comments} band={band} handleAddComment={handleAddComment} />
       </div>
       {/* <img src={`${movie.poster_path}`} alt="" /> */}
     </div>

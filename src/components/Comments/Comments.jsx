@@ -1,17 +1,19 @@
 import { useState, useRef, useEffect } from 'react';
 
 
-export default function Comments({ handleAddComment }) {
+export default function Comments({ handleAddComment, band, comments }) {
+    comments.map(c => { 
+        return <BandDetailPage key={comment} />
+      })})
     const [newComment, setNewComment] =useState({
      content: "",
-     userName: ""
     });
-    
+    console.log(band);
       
     function handleSubmit(evt) {
      evt.preventDefault();
-     handleAddComment(newComment);
-     this.setNewComment({isSubmitted: true});
+     handleAddComment(newComment, band._id);
+    
     }
       
     function handleChange(evt) {

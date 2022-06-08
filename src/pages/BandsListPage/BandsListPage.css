@@ -3,6 +3,7 @@
     grid-template-columns: repeat(3,1fr);
     border-style: double;
     border-radius: 10px;
+
   }
   
   body {
@@ -11,5 +12,6 @@
     width: 100vw;
     background-size: cover;
     background-position: center;
+    color:white
   }
   

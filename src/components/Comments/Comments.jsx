@@ -5,7 +5,7 @@ export default function Comments({ handleAddComment, band, comments }) {
     const [newComment, setNewComment] =useState({
      content: "",
     });
-    console.log(band);
+    
       
     function handleSubmit(evt) {
      evt.preventDefault();
@@ -19,7 +19,7 @@ export default function Comments({ handleAddComment, band, comments }) {
     
 return (
 
-<form onSubmit={handleSubmit}>
+<form onSubmit={handleSubmit} >
 <textarea onChange= {handleChange}
   value={newComment.content}
   name = 'content'

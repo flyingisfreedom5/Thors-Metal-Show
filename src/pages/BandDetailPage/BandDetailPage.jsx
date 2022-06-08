@@ -9,6 +9,7 @@ export default function BandDetailPage({ bands, handleAddComment, comments}) {
 
 
   return (
+    <>
     <div className="flex">
       <div>
         <h1>{band.title}</h1>
@@ -17,9 +18,15 @@ export default function BandDetailPage({ bands, handleAddComment, comments}) {
         <ul>
             <li>{band.albumsList}</li>
         </ul>
-        <Comments comments={comments} band={band} handleAddComment={handleAddComment} />
+        <br></br>
+        <button >Update Band</button>
       </div>
-      {/* <img src={`${movie.poster_path}`} alt="" /> */}
+      <div>
+        
+        <Comments  comments={comments} band={band} handleAddComment={handleAddComment} />
+     
     </div>
+    </div>
+    </>
   );
 }

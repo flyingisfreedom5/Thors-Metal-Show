@@ -14,7 +14,6 @@ export default function NewBandPage({ handleAddBand }) {
   function handleSubmit(evt) {
     evt.preventDefault();
     handleAddBand(newBand);
-    this.setNewBand({isSubmitted: true});
   }
 
   function handleChange(evt) {

@@ -6,6 +6,8 @@ export default function BandDetailPage({ bands }) {
 
   let band = bands.find((b) => b.title === bandTitle);
   
+  function handleClick(band) {}
+
   return (
     <div className="flex">
       <div>
@@ -15,7 +17,7 @@ export default function BandDetailPage({ bands }) {
         <ul>
             <li>{band.albumsList}</li>
         </ul>
-        
+        <Comments/>
       </div>
       {/* <img src={`${movie.poster_path}`} alt="" /> */}
     </div>

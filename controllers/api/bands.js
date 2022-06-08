@@ -3,6 +3,7 @@ const Band = require('../../models/band');
 module.exports ={
     getAll,
     create,
+    update,
 }
 
 async function getAll(req, res) {
@@ -15,4 +16,12 @@ async function create(req, res) {
     const band = await Band.create(req.body) ;
     band.save();
     res.json(band);
+}
+
+async function update(req, res) {
+    req.body.user = req.user._id
+    const updateBand = await Band.findByIdAndUpdate(req.body);
+    updateBand.save();
+    res.json(band);
+
 }

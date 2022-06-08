@@ -3,8 +3,9 @@ import { useState, useRef, useEffect } from 'react';
 
 export default function Comments({ handleAddComment, band, comments }) {
     comments.map(c => { 
-        return <BandDetailPage key={comment} />
-      })})
+        return <BandDetailPage key={comments} />
+      })
+    }
     const [newComment, setNewComment] =useState({
      content: "",
     });

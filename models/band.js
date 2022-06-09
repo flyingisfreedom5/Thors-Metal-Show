@@ -22,7 +22,6 @@ const bandSchema = new Schema({
     title: {type: String, required: true},
     members: {type: String, required:true},
     albumsList: String,
-    photo: [{type: Schema.Types.ObjectId, ref: 'Photo'}],
     comments: [commentSchema],
 }, {
     timestamps: true,

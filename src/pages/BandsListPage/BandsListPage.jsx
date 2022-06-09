@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-import * as bandsAPI from '../../utilities/bands-api'
 import BandList from "../../components/BandList/BandList"
 import './BandsListPage.css'
 

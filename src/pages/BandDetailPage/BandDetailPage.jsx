@@ -1,5 +1,8 @@
 import { useParams } from "react-router-dom";
 import Comments from '../../components/Comments/Comments';
+import CommentForm from '../../components/Comments/CommentForm'
+import UpdateComment from '../../components/Comments/UpdateComment';
+import DeleteComment from '../../components/Comments/DeleteComment';
 
 export default function BandDetailPage({ bands, handleAddComment, comments}) {
   let { id } = useParams();
@@ -18,14 +21,13 @@ export default function BandDetailPage({ bands, handleAddComment, comments}) {
         <ul>
             <li>{band.albumsList}</li>
         </ul>
-        <br></br>
-        <button >Update Band</button>
       </div>
-      <div>
+     <Comments band={band} handleAddComment={handleAddComment} />
+     <CommentForm band={band} handleAddComment={handleAddComment} />
+     <UpdateComment />
+     <DeleteComment />
+      
         
-        <Comments  comments={comments} band={band} handleAddComment={handleAddComment} />
-     
-    </div>
     </div>
     </>
   );

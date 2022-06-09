@@ -1,32 +1,13 @@
-import { useState, useRef, useEffect } from 'react';
+import CommentDetailPage from '../../pages/CommentDetailPage/CommentDetailPage'
 
-
-export default function Comments({ handleAddComment, band, comments }) {
-    const [newComment, setNewComment] =useState({
-     content: "",
-    });
-    
-      
-    function handleSubmit(evt) {
-     evt.preventDefault();
-     handleAddComment(newComment, band._id);
-    
-    }
-      
-    function handleChange(evt) {
-     setNewComment({... newComment, [evt.target.name] : evt.target.value})
-    }
-    
-return (
-
-<form onSubmit={handleSubmit} >
-<textarea onChange= {handleChange}
-  value={newComment.content}
-  name = 'content'
-  placeholder="New Comment"
-/>
-<button type="submit">ADD COMMENT</button>
-</form>
-
-);
+export default function Comments({ band, handleAddComment, comment }) {
+  
+  return (
+        band.comments.map(c => {
+        <CommentDetailPage band={band} key={c._id} comment={c} handleAddComment={handleAddComment} />
+        })
+   
+  )
 }
+
+

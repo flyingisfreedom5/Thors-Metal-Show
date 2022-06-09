@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import * as photosAPI from '../../utilities/photos-api';
-import BandList from '../../components/BandList/BandList';
+
 
 export default function NewBandPage({ handleAddBand }) {
   const [newBand, setNewBand] =useState({
@@ -20,23 +19,7 @@ export default function NewBandPage({ handleAddBand }) {
     setNewBand({... newBand, [evt.target.name] : evt.target.value})
   }
 
-  const [title, setTitle] = useState('');
-  const [photos, setPhotos] = useState([]);
-  const fileInputRef = useRef();
-
-  useEffect(function() {
-    photosAPI.getAll().then(photos => setPhotos(photos));
-  }, []);
-  async function handleUpload() {
-    const formData = new FormData();
-    formData.append('title', title);
-    formData.append('photo', fileInputRef.current.files[0]);
-    const newPhoto = await photosAPI.upload(formData);
-    setPhotos([newPhoto, ...photos]);
-    // Clear the description and file inputs
-    setTitle('');
-    fileInputRef.current.value = '';
-  }
+ 
   return (
     <>
     <h2>New Band</h2>
@@ -61,17 +44,6 @@ export default function NewBandPage({ handleAddBand }) {
         />
         <button type="submit">ADD BAND</button>
       </form>
-    <main className="App flex-ctr-ctr">
-      <section className="flex-ctr-ctr">
-        <input type="file" ref={fileInputRef} />
-        <input value={title} onChange={(evt) => setTitle(evt.target.value)} 
-        placeholder="Photo Title" />
-        <button onClick={handleUpload}>Upload Photo</button>
-      </section>
-      <section>
-        {photos.map(p => <BandList photo={p} key={p._id} />)}
-      </section>
-    </main>
     </>
   );
 }

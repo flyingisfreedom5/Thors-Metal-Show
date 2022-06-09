@@ -7,3 +7,9 @@ export function addComment(commentData, id) {
     return sendRequest(`${BASE_URL}`, 'POST', {commentData, id});
 }
 
+export function updateComment(commentData, id) {
+    return sendRequest(`${BASE_URL}`, 'PUT', {commentData, id});
+}
+export function deleteComment(commentData, id) {
+    return sendRequest(`${BASE_URL}`, 'DELETE', {commentData, id});
+}

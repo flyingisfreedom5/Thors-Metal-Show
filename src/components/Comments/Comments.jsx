@@ -1,13 +1,10 @@
-import CommentDetailPage from '../../pages/CommentDetailPage/CommentDetailPage'
+import CommentDetail from '../../components/CommentDetail/CommentDetail'
 
-export default function Comments({ band, handleAddComment, comment }) {
+export default function Comments({ band }) {
   
   return (
-        band.comments.map(c => {
-        <CommentDetailPage band={band} key={c._id} comment={c} handleAddComment={handleAddComment} />
-        })
-   
-  )
+        band.comments.map(c => <CommentDetail key={c._id} comment={c} />)
+  );
 }
 
 

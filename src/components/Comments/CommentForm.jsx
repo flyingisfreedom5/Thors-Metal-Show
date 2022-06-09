@@ -12,7 +12,9 @@ export default function CommentForm({ handleAddComment, band }) {
 
   function handleChange(evt) {
     setNewComment({ ...newComment, [evt.target.name]: evt.target.value });
+    console.log(handleChange);
   }
+
 
   return (
     <form onSubmit={handleSubmit}>

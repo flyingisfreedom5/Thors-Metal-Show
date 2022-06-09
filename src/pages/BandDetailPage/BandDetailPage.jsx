@@ -8,7 +8,7 @@ export default function BandDetailPage({ bands, handleAddComment, comments}) {
   let { id } = useParams();
 
   let band = bands.find((b) => b._id === id);
-  
+  if(!band) return null;
 
 
   return (
@@ -24,8 +24,7 @@ export default function BandDetailPage({ bands, handleAddComment, comments}) {
       </div>
      <Comments band={band} handleAddComment={handleAddComment} />
      <CommentForm band={band} handleAddComment={handleAddComment} />
-     <UpdateComment />
-     <DeleteComment />
+     
       
         
     </div>

@@ -15,14 +15,15 @@ import './App.css';
 function App() {
   const [user, setUser] = useState(getUser());
   const [bands, setBands] = useState([]);
-  const [comments, setComments] = useState([]);
   
   function handleAddBand(band) {
     addBand(band)
   }
   
-  function handleAddComment(comment, id) {
-    addComment(comment, id)
+  async function handleAddComment(comment, id) {
+    const updatedBand = await CommentsAPI.addComment(comment, id)
+    const updatedBands = bands.map(b => b._id === updatedBand._id ? updatedBand : b) 
+    setBands(updatedBands)
   }
 
 
@@ -38,10 +39,7 @@ async function addBand(data) {
  const band = await BandsAPI.add(data) 
  setBands([... bands, band])
 }
-async function addComment(data, id) {
- const comment = await CommentsAPI.addComment(data, id) 
- setComments([... comments, comment])
-}
+
 
 
 
@@ -55,7 +53,7 @@ async function addComment(data, id) {
           <Routes>
             {/* Route components in here */}
             <Route path="/bands/:id" element={<BandDetailPage bands={bands}
-             handleAddComment={handleAddComment} comments={comments} />} />
+             handleAddComment={handleAddComment}/>} />
             <Route path="/bands/new" element={<NewBandPage handleAddBand ={handleAddBand} />} />
             <Route path="/bands" element={<BandsListPage bands={bands}  />} />
           </Routes>

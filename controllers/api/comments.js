@@ -10,6 +10,7 @@ module.exports = {
 async function create(req, res) {
     const band = await Band.findOne({_id: req.body.id} )
         req.body.commentData.user = req.user._id;
+        req.body.commentData.userName = req.user.name;
         band.comments.push(req.body.commentData);
         await band.save();
         res.json(band);

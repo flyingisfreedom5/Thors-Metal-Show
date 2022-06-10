@@ -22,7 +22,7 @@ export default function NewBandPage({ handleAddBand }) {
  
   return (
     <>
-    <h2>New Band</h2>
+    <h2>Please Create New Band</h2>
     <form onSubmit={handleSubmit}>
         <textarea onChange= {handleChange}
           value={newBand.title}

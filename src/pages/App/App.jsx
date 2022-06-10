@@ -33,8 +33,8 @@ useEffect(() => {
     const bands = await BandsAPI.getAll()
     setBands(bands);
   }
- getAllBands();
-}, [] )
+  if (user) getAllBands();
+}, [user] );
 
 async function addBand(data) {
  const band = await BandsAPI.add(data) 

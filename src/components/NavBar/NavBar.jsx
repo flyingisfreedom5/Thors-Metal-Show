@@ -13,12 +13,14 @@ export default function NavBar({ user, setUser }) {
   }
 
   return (
-    <div className="flex-container">
-    <nav className="flex-item">
-      <Link className="link" to="/bands">Bands</Link>
-      <Link className="link" to="/bands/new">New Band</Link>
-      <span>Welcome, {user.name}</span>
+    <div class="flex-container">
+    <nav className="navbar navbar-dark bg-primary">
+      <span class="navbar-text">
+      <Link className="navbar-brand" to="/bands">Bands</Link>
+      <Link className="navbar-brand" to="/bands/new">New Band</Link>
+      <span class="navbar-toggler-icon">Welcome, {user.name}</span>
       <Link className="link" to="" onClick={handleLogOut}>Log Out</Link>
+      </span>
     </nav>
     </div>
   );

@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './NewBandPage.css';
 
 
 export default function NewBandPage({ handleAddBand }) {
+  const navigate = useNavigate();
   const [newBand, setNewBand] =useState({
     title: "",
     members: "",
@@ -14,6 +17,7 @@ export default function NewBandPage({ handleAddBand }) {
   function handleSubmit(evt) {
     evt.preventDefault();
     handleAddBand(newBand);
+    navigate("/bands");
   }
 
   function handleChange(evt) {
@@ -24,7 +28,7 @@ export default function NewBandPage({ handleAddBand }) {
     <>
     <h2>Please Create New Band</h2>
     <form onSubmit={handleSubmit}>
-        <textarea onChange= {handleChange}
+        <textarea className="input-text" onChange= {handleChange}
           value={newBand.title}
           name = 'title'
           placeholder="New Band"

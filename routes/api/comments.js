@@ -7,8 +7,7 @@ const commentsCtrl = require('../../controllers/api/comments');
 router.post('/', commentsCtrl.create);
 // DELETE /comments/:id
 router.delete('/:id', commentsCtrl.delete);
-// PUT /comments/:id'
-router.put('/:id', commentsCtrl.update);
+
 
 
 module.exports = router

@@ -2,7 +2,6 @@ const Band = require('../../models/band');
 
 module.exports = {
     create,
-    update,
     delete: deleteComment
     
 };
@@ -16,22 +15,13 @@ async function create(req, res) {
         res.json(band);
 }
 
-async function update(req, res) {
-    const band = await Band.findByIdAndUpdate({_id: req.body.id})
-    req.body.commentData.user = req.user._id;
-    const commentSubDoc = await band.comments.id(req.params.id);
-    if (!commentSubdoc.user.equals(req.user._id)) return res.redirect(`/bands/${band._id}`);
-    commentSubDoc.text = req.body.text
-    await band.save()
-    res.json(band);
 
-}   
 async function deleteComment(req, res) {
-    const band = await Band.findByIdAndDelete({_id: req.body.id})
-    req.body.commentData.user = req.user._id;
-    if (!place) return res.redirect(`/bands/${band._id}`);
+    console.log(req.body);
+    const band = await Band.findOne({'comments._id': req.params.id})
     band.comments.remove(req.params.id)
     await band.save()
+    console.log(band);
     res.json(band);
 
 }   

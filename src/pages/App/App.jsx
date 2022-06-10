@@ -1,3 +1,4 @@
+import React from 'react'
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
@@ -37,8 +38,7 @@ useEffect(() => {
 
 async function addBand(data) {
  const band = await BandsAPI.add(data) 
- setBands([... bands, band])
-}
+ setBands([...bands, band])}
 
 
 
@@ -52,7 +52,7 @@ async function addBand(data) {
           
           <Routes>
             {/* Route components in here */}
-            <Route path="/bands/:id" element={<BandDetailPage bands={bands}
+            <Route path="/bands/:id" element={<BandDetailPage bands={bands} setBands= {setBands}
              handleAddComment={handleAddComment}/>} />
             <Route path="/bands/new" element={<NewBandPage handleAddBand ={handleAddBand} />} />
             <Route path="/bands" element={<BandsListPage bands={bands}  />} />

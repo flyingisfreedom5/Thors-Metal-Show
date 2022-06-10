@@ -1,4 +1,5 @@
-import { useState, useRef, useEffect } from 'react';
+import React from 'react'
+import { useState } from 'react';
 
 
 export default function NewBandPage({ handleAddBand }) {
@@ -16,9 +17,8 @@ export default function NewBandPage({ handleAddBand }) {
   }
 
   function handleChange(evt) {
-    setNewBand({... newBand, [evt.target.name] : evt.target.value})
+  setNewBand({...newBand,[evt.target.name]:evt.target.value})
   }
-
  
   return (
     <>

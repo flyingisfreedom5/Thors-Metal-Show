@@ -1,10 +1,9 @@
+import React from 'react'
 import { useParams } from "react-router-dom";
 import Comments from '../../components/Comments/Comments';
 import CommentForm from '../../components/Comments/CommentForm'
-import UpdateComment from '../../components/Comments/UpdateComment';
-import DeleteComment from '../../components/Comments/DeleteComment';
 
-export default function BandDetailPage({ bands, handleAddComment, comments}) {
+export default function BandDetailPage({ bands, handleAddComment, setBands}) {
   let { id } = useParams();
 
   let band = bands.find((b) => b._id === id);
@@ -19,10 +18,11 @@ export default function BandDetailPage({ bands, handleAddComment, comments}) {
         <h2>Members: {band.members}</h2>
         <h3>Albums List:</h3>
         <ul>
-            <li>{band.albumsList}</li>
+        {band.albumsList}
+            
         </ul>
       </div>
-     <Comments band={band} handleAddComment={handleAddComment} />
+     <Comments bands={bands} band={band} handleAddComment={handleAddComment} setBands={setBands} />
      <CommentForm band={band} handleAddComment={handleAddComment} />
      
       

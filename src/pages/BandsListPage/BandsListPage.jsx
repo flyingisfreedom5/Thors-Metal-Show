@@ -1,3 +1,4 @@
+import React from 'react'
 import BandList from "../../components/BandList/BandList"
 import './BandsListPage.css'
 

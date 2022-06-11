@@ -9,7 +9,6 @@ import NavBar from '../../components/NavBar/NavBar';
 import BandDetailPage from '../BandDetailPage/BandDetailPage'
 import * as BandsAPI from '../../utilities/bands-api';
 import * as CommentsAPI from '../../utilities/comments-api';
-import rock from '../../images/rock.png';
 import './App.css';
 
 
@@ -47,7 +46,7 @@ async function addBand(data) {
     <main className="App">
       { user ?
         <>
-        <img src= {rock} alt= "rock-and-roll" height="80" />
+        
           <NavBar user={user} setUser={setUser} />
           
           <Routes>

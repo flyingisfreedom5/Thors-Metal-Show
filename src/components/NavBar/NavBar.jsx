@@ -15,7 +15,7 @@ export default function NavBar({ user, setUser }) {
     
     <nav className="waves-effect waves-light btn-large indigo accent-2">
       <div className="nav-wrapper">
-      <a href="#" className="brand-logo">Logo</a>
+      <a href="/bands" className="brand-logo center">Thor</a>
       <ul id="nav-mobile" className="right hide-on-med-and-down">
       <li className="waves-effect waves-light btn-large indigo accent-3"><Link to="/bands">Bands</Link></li>
       <li className="waves-effect waves-light btn-large indigo accent-3"><Link to="/bands/new">New Band</Link></li>

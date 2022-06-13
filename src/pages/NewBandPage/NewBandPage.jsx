@@ -34,19 +34,19 @@ export default function NewBandPage({ handleAddBand }) {
           placeholder="New Band"
           required
         />
-         <textarea onChange= {handleChange}
+         <textarea className="input-text" onChange= {handleChange}
           value={newBand.members}
           name = 'members'
           placeholder="Members"
           required
         />
-        <textarea onChange= {handleChange}
+        <textarea className="input-text" onChange= {handleChange}
           value={newBand.albumsList}
           name = 'albumsList'
           placeholder="Albums List"
           required
         />
-        <button type="submit">ADD BAND</button>
+        <button className="button" type="submit">ADD BAND</button>
       </form>
     </>
   );

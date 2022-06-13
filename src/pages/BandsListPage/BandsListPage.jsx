@@ -5,15 +5,16 @@ import heavyMetal from '../../images/heavyMetal.png'
 
 export default function BandsPage(props) {
   return (
-    <div className="row center" style={{marginLeft:"575px"}} >
-      <div className="col s12 m6 center">
+    <div >
+    <div className="center" >
+      <div class="col m12 l6">
         <div className="card blue-grey darken-1 center">
-      <   div className="card-content white-text center">
+          <div className="card-content white-text ">
             <span class="card-title center">Bands</span>
             <div>
             <img class="responsive-img" src={heavyMetal} alt="heavyMetal" />
             </div>
-            <div className="center" style={{marginLeft:"175px"}}>
+            <div className="center" style={{marginLeft:'850px'}}>
       {
         props.bands.map(band => {
           return <BandList key={band.title} band={band} />
@@ -23,6 +24,7 @@ export default function BandsPage(props) {
           </div>
         </div>
       </div>
+    </div>
     </div>
   )
 }

@@ -20,12 +20,13 @@ export default function CommentForm({ handleAddComment, band }) {
   return (
     <form onSubmit={handleSubmit}>
       <input
+        className="input-text"
         onChange={handleChange}
         value={newComment.content}
         name="content"
         placeholder="New Comment"
       />
-      <button type="submit">ADD COMMENT</button>
+      <button className="button" type="submit">ADD COMMENT</button>
     </form>
   );
 }

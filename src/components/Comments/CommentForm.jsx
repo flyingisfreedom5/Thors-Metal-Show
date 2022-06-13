@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from "react";
+import "./CommentForm.css";
 
 export default function CommentForm({ handleAddComment, band }) {
   const [newComment, setNewComment] = useState({

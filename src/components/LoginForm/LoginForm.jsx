@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
+import "./LoginForm.css"
 
 
 export default function LoginForm({ setUser }) {
@@ -31,13 +32,13 @@ export default function LoginForm({ setUser }) {
 
   return (
     <div>
-  <div className="row offset-l4">
+     <div className="row offset-l4">
         <div className="form-container col s12 m6 l8" style={{marginLeft:"350px"}}>
           <form autoComplete="off" onSubmit={handleSubmit}>
-            <label>Email</label>
-            <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-            <label>Password</label>
-            <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
+            <label className="input-text">Email</label>
+            <input className="input-text" type="text" name="email" value={credentials.email} onChange={handleChange} required />
+            <label className="input-text">Password</label>
+            <input className="input-text" type="password" name="password" value={credentials.password} onChange={handleChange} required />
             <button className="btn indigo accent-3" type="submit">LOG IN &#129304;</button>
           </form>
         </div>

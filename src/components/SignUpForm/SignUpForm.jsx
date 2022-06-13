@@ -1,6 +1,7 @@
 import React from 'react'
 import { Component } from 'react';
 import { signUp } from '../../utilities/users-service';
+import "./SignUpForm.css";
 
 
 export default class SignUpForm extends Component {
@@ -46,15 +47,15 @@ export default class SignUpForm extends Component {
         <div className='row'>
         <div className="form-container  col s12 m6 l8" style={{marginLeft:"350px"}} >
           <form autoComplete="off" onSubmit={this.handleSubmit}>
-            <label>Name</label>
-            <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
-            <label>Email</label>
-            <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
-            <label>Password</label>
-            <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
-            <label>Confirm</label>
-            <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
-            <button className="btn indigo accent-3" type="submit" disabled={disable}>SIGN UP &#129304;</button>
+            <label className="input-text">Name</label>
+              <input className="input-text" type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
+            <label className="input-text">Email</label>
+              <input className="input-text" type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
+            <label className="input-text">Password</label>
+              <input className="input-text" type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
+            <label className="input-text">Confirm</label>
+              <input className="input-text" type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
+                <button className="btn indigo accent-3" type="submit" disabled={disable}>SIGN UP &#129304;</button>
           </form>
           </div>
         </div>

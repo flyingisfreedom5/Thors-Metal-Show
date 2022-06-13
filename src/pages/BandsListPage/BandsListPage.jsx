@@ -14,7 +14,7 @@ export default function BandsPage(props) {
             <div>
             <img class="responsive-img" src={heavyMetal} alt="heavyMetal" />
             </div>
-            <div className="center" style={{marginLeft:'850px'}}>
+            <div className="center" style={{marginLeft:'450px'}}>
       {
         props.bands.map(band => {
           return <BandList key={band.title} band={band} />

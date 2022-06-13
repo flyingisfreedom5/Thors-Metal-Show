@@ -1,5 +1,6 @@
 import React from 'react'
 import * as CommentsAPI from '../../utilities/comments-api';
+import "./CommentDetail.css";
 
 export default function CommentDetail({bands, comment, setBands }) {
   
@@ -17,7 +18,7 @@ export default function CommentDetail({bands, comment, setBands }) {
            <p> {comment.userName} </p>
         </div>
         
-        <button onClick={() => deleteComment(comment._id)} type="submit">DELETE COMMENT</button>
+        <button className="button" onClick={() => deleteComment(comment._id)} type="submit">DELETE COMMENT</button>
         </>
         )
 }
